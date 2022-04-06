@@ -10,14 +10,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome<?php
-              $username=$_GET['username'];
-              $city=$_GET['city'];
-              echo htmlspecialchars($username);
-              function pure($input){
-                  $input=trim($input);
-              }
-            ?></h1>
+        <?php
+            $email=$_POST['email'];
+            /*$pattern="/^[A-Za-z0-9\x{0430}-\x{044F}\x{0410}-\x{042F}\._-]+@([A-Za-z0-9\x{0430}-\x{044F}\x{0410}-\x{042F}]{1,2}|[A-Za-z0-9\x{0430}-\x{044F}\x{0410}-\x{042F}]((?<!(\.\.))[A-Za-z0-9\x{0430}-\x{044F}\x{0410}-\x{042F}.-])+[A-Za-z0-9\x{0430}-\x{044F}\x{0410}-\x{042F}])\.[A-Za-z\x{0430}-\x{044F}\x{0410}-\x{042F}]{2,}$/iu";
+        $match=preg_match($pattern,$email);
+        var_dump($match);*/
+        $match = filter_var($email,FILTER_VALIDATE_EMAIL);
+
+        if($match){?>
+            <h1>Welcome<?php
+                foreach ($_POST as $key=>$value){
+                    if(is_array($value)){
+                        echo $key.": ";
+                        foreach ($value as $element){
+                            echo pure($element);
+                        }
+                    }else{
+                        echo "<br>".$key.": ".pure($value)."<br>";
+                    }
+                }
+                ?></h1>
+        <?php }else{
+            //header("Location: index.php");
+            echo "Write Correct Email";
+            header("Refresh: 6;URL=index.php");
+        }
+        function pure($input){
+            $input=trim($input);
+            $input=stripslashes($input);
+            $input=htmlspecialchars($input);
+            return $input;
+        }
+        ?>
+
     </div>
 </body>
 </html>
+
+
