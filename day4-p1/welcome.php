@@ -31,9 +31,9 @@
                 }
                 ?></h1>
         <?php }else{
-            //header("Location: index.php");
+            //header("Location: User.php");
             echo "Write Correct Email";
-            header("Refresh: 6;URL=index.php");
+            header("Refresh: 6;URL=User.php");
         }
         function pure($input){
             $input=trim($input);

@@ -27,7 +27,7 @@
                            move_uploaded_file($fileTmp,'images/'.$fileName);
                        }else{
                            echo "Sorry Images Only allowed";
-                           header('Refresh: 3;URL=index.php');
+                           header('Refresh: 3;URL=User.php');
                        }
                         ?>
                         <img src=<?="images/".$fileName?> alt="User profile" style="width:200px; height:200px; object-fit:cover">
@@ -49,7 +49,7 @@
                         <?php endforeach;
                     }else{
                         echo "Please Fill Form First";
-                        header("Refresh: 5;URL= index.php");
+                        header("Refresh: 5;URL= User.php");
                     }
                 ?>            
 
