@@ -1,0 +1,38 @@
+
+#delete{
+    background: lightblue;
+}
+#delete:hover{
+    color: darkred;
+}
+#edit{
+    background: lightcoral;
+    color: lightgoldenrodyellow;
+}
+#edit:hover{
+    color: navy;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    color: navy;
+}
+ul li{
+    display: inline;
+}
+ul li::after{
+    content:" | ";
+}
+ul li:last-child::after {
+    content: "";
+}
+.nav{
+    background: lightcoral;
+    height: 60px;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}

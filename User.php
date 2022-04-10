@@ -26,11 +26,7 @@ class User{
             $this->status=0;
             }
     public function showStatus(){
-        if($this->status==1){
-            return"activated";
-        }else{
-            return "deactivated";
-        }
+        return $this->status;
     }
     
     public static function sayHello(){
